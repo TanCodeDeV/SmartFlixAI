@@ -1,4 +1,5 @@
-export const checkValidation = (email, password) => {
+export const checkValidation = (name, email, password) => {
+  const nameValidation = /^[a-zA-Z]+ [a-zA-Z]+$/.test(name);
   const emailValidation =
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
 
@@ -13,6 +14,9 @@ export const checkValidation = (email, password) => {
 
   if (!passwordValidation) {
     return "Password is not valid";
+  }
+  if (name && !nameValidation) {
+    return "Name is not valid";
   }
 
   return null;

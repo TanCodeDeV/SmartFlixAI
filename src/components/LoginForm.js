@@ -3,8 +3,10 @@ import { checkValidation } from "../utils/Validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/Firebase";
+import { useNavigate } from "react-router";
 
 const LoginForm = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -14,16 +16,22 @@ const LoginForm = () => {
     setIsSignIn(!isSignIn);
     //console.log(isSignIn);
   };
-
+  const navigate = useNavigate();
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
   const CheckFormValidation = () => {
     console.log("Button clicked");
-    const emailVal = email.current.value;
-    const passwordVal = password.current.value;
+    // const nameVal = name.current.value;
+    // const emailVal = email.current.value;
+    // const passwordVal = password.current.value;
 
-    let result = checkValidation(emailVal, passwordVal);
+    const nameVal = name.current ? name.current.value : ""; // Handle null case
+    const emailVal = email.current ? email.current.value : "";
+    const passwordVal = password.current ? password.current.value : "";
+
+    let result = checkValidation(nameVal, emailVal, passwordVal);
     setErrorMesssage(result);
     //console.log(result);
     if (result) return;
@@ -33,7 +41,20 @@ const LoginForm = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+          updateProfile(user, {
+            displayName: nameVal,
+            photoURL: "https://example.com/jane-q-user/profile.jpg",
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+            });
           console.log(user);
+          navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -48,6 +69,7 @@ const LoginForm = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
+          navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -69,6 +91,7 @@ const LoginForm = () => {
         </h1>
         {!isSignIn && (
           <input
+            ref={name}
             type="input"
             placeholder="Enter Full Name"
             className="p-4 m-2 border-2 border-gray-500 rounded-sm bg-black w-[100%] h-auto"
