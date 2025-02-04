@@ -1,5 +1,10 @@
 import React, { useRef, useState } from "react";
-import { checkValidation } from "./Validate";
+import { checkValidation } from "../utils/Validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/Firebase";
 
 const LoginForm = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -7,7 +12,7 @@ const LoginForm = () => {
 
   const toggleSignForm = () => {
     setIsSignIn(!isSignIn);
-    console.log(isSignIn);
+    //console.log(isSignIn);
   };
 
   const email = useRef(null);
@@ -20,7 +25,37 @@ const LoginForm = () => {
 
     let result = checkValidation(emailVal, passwordVal);
     setErrorMesssage(result);
-    console.log(result);
+    //console.log(result);
+    if (result) return;
+
+    if (!isSignIn) {
+      createUserWithEmailAndPassword(auth, emailVal, passwordVal)
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMesssage(errorCode + "-" + errorMessage);
+          // ..
+        });
+    } else {
+      signInWithEmailAndPassword(auth, emailVal, passwordVal)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMesssage(errorCode + "-" + errorMessage);
+        });
+    }
   };
 
   return (
@@ -64,7 +99,7 @@ const LoginForm = () => {
           Use a sign-in code
         </button>
         <p className="p-4 m-2 cursor-pointer" onClick={toggleSignForm}>
-          New to Netflix? Sign up now.
+          {isSignIn ? "New to Netflix? Sign up now" : "Alredy a user sign-in"}
         </p>
       </form>
     </div>
