@@ -6,7 +6,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/Firebase";
-import { useNavigate } from "react-router";
+
 
 const LoginForm = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -16,7 +16,7 @@ const LoginForm = () => {
     setIsSignIn(!isSignIn);
     //console.log(isSignIn);
   };
-  const navigate = useNavigate();
+ // const navigate = useNavigate();
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -53,8 +53,8 @@ const LoginForm = () => {
               // An error occurred
               // ...
             });
-          console.log(user);
-          navigate("/browse");
+          //console.log(user);
+          //navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -69,7 +69,7 @@ const LoginForm = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
+          //navigate("/browse");
           // ...
         })
         .catch((error) => {
