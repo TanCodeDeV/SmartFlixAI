@@ -55,7 +55,7 @@ const Header = () => {
           <img className="w-12 h-12" src={USER_LOGO} alt="userON"></img>
           <p
             onClick={handleSignOut}
-            className="mr-2 font-medium hover:underline hover:cursor-pointer"
+            className="mr-2 font-medium text-white hover:underline hover:cursor-pointer"
           >
             Sign Out
           </p>
