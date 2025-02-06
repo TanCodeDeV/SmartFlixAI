@@ -7,7 +7,8 @@ export const USER_LOGO =
 export const LOGIN_BSCKGROUND_IMG =
   "https://assets.nflxext.com/ffe/siteui/vlv3/fb5cb900-0cb6-4728-beb5-579b9af98fdd/web/IN-en-20250127-TRIFECTA-perspective_cf66f5a3-d894-4185-9106-5f45502fc387_large.jpg";
 
-export const API_KEY = "http://www.omdbapi.com/?i=tt3896198&apikey=db99890d";
+export const VIDEO_URL =
+  "https://imdb-video.media-imdb.com/vi3877612057/1434659607842-pgv4ql-1616202333253.mp4?Expires=1738838055&Signature=HhEyrJEOevmm5i1iUz1wWwO8sgiwztLgKqrL9AzubzDvj4weCRQ3gf5mDA9uI54JnJmxtr6eCq7J-D9mLBiI6TsfAQp3WHkLsUeCwIpYR7EuLhUgGPQrEf3fhVa6R-8wznNj~M1VutcHOYan8wnI4JGkdHG0-A9ILTcDJOvaDfNdKRuu8NVvnRfZPb2vu9s5aISV1hS0ovhyP0aE5DfG5Cqkm80OJhBySLky5ATgd5OlMhq992qnU3eX8BHqbCCUjrIt-1KAYC3HlewbF9pzk99~lo~vnalViB~hopQNA2sjGBSxFkY01U7ypYW0TobqK35czapMJSLUW~YD40um0A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA";
 
 export const OPTIONS = {
   method: "GET",
@@ -19,5 +20,8 @@ export const OPTIONS = {
 
 export const URL = "https://imdb236.p.rapidapi.com/imdb/top250-movies";
 
-export const VIDEO_URL =
-  "https://imdb-video.media-imdb.com/vi3877612057/1434659607842-pgv4ql-1616202333253.mp4?Expires=1738838055&Signature=HhEyrJEOevmm5i1iUz1wWwO8sgiwztLgKqrL9AzubzDvj4weCRQ3gf5mDA9uI54JnJmxtr6eCq7J-D9mLBiI6TsfAQp3WHkLsUeCwIpYR7EuLhUgGPQrEf3fhVa6R-8wznNj~M1VutcHOYan8wnI4JGkdHG0-A9ILTcDJOvaDfNdKRuu8NVvnRfZPb2vu9s5aISV1hS0ovhyP0aE5DfG5Cqkm80OJhBySLky5ATgd5OlMhq992qnU3eX8BHqbCCUjrIt-1KAYC3HlewbF9pzk99~lo~vnalViB~hopQNA2sjGBSxFkY01U7ypYW0TobqK35czapMJSLUW~YD40um0A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA";
+export const BOXOFFICEUS_URL =
+  "https://imdb236.p.rapidapi.com/imdb/top-box-office";
+
+export const MOSTPOPULARMOVIE_URL =
+  "https://imdb236.p.rapidapi.com/imdb/most-popular-movies";
