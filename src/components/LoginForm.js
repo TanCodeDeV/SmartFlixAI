@@ -22,7 +22,7 @@ const LoginForm = () => {
   const password = useRef(null);
 
   const CheckFormValidation = () => {
-    console.log("Button clicked");
+    //console.log("Button clicked");
     // const nameVal = name.current.value;
     // const emailVal = email.current.value;
     // const passwordVal = password.current.value;
@@ -68,7 +68,7 @@ const LoginForm = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
+          //console.log(user);
           //navigate("/browse");
           // ...
         })

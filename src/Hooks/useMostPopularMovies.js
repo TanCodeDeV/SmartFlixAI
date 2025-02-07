@@ -18,8 +18,8 @@ const useMostPopularMovies = () => {
       const result = await response.json();
       dispatch(addMostPopularMovies(result));
 
-      console.log("top250-movies");
-      console.log(result);
+      // console.log("top250-movies");
+      // console.log(result);
     } catch (error) {
       console.error(error);
     }

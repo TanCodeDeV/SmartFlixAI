@@ -8,8 +8,8 @@ const MainContainer = () => {
 
   if (movies == null) return; //early return ki.e is movie exist then only go ahead
   const mainMovie = movies[0];
-  console.log("Main Movie");
-  console.log(mainMovie);
+  // console.log("Main Movie");
+  // console.log(mainMovie);
 
   const { originalTitle, description } = mainMovie;
 

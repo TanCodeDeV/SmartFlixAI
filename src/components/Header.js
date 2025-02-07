@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/UserSlice";
 import { NETFLIX_LOGO, USER_LOGO } from "../utils/Constants";
 import { addGPTSuggestionToggle } from "../utils/GPTSuggestionSlice";
+import { SUPPORTED_LANGUAGES } from "../utils/Constants";
+import { addChangeLangauge } from "../utils/ConfigSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -48,7 +50,11 @@ const Header = () => {
     //Toggle GPT suggestion
     dispatch(addGPTSuggestionToggle());
   };
-
+  const handleLanguageChange = (e) => {
+    console.log("select drop down value:");
+    console.log(e.target.value);
+    dispatch(addChangeLangauge(e.target.value));
+  };
   return (
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <div>
@@ -60,6 +66,16 @@ const Header = () => {
       </div>
       {user && (
         <div className=" flex justify-center">
+          <select
+            className="bg-black text-white m-2 p-2 rounded-md"
+            onChange={handleLanguageChange}
+          >
+            {SUPPORTED_LANGUAGES.map((language) => (
+              <option key={language.identifier} value={language.identifier}>
+                {language.name}
+              </option>
+            ))}
+          </select>
           <button
             onClick={handleGPTSuggestion}
             className="bg-red-600 text-white rounded-md mr-4 m-2 p-2 h-[45px]"

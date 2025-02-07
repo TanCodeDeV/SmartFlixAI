@@ -18,8 +18,8 @@ const useTopBoxOfficeUS = () => {
       const result = await response.json();
       dispatch(addTopBoxOfficeUs(result));
 
-      console.log("topBoxOfficeUs-movies");
-      console.log(result);
+      // console.log("topBoxOfficeUs-movies");
+      // console.log(result);
     } catch (error) {
       console.error(error);
     }

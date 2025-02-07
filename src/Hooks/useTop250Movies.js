@@ -18,8 +18,8 @@ const useTop250Movies = () => {
       const result = await response.json();
       dispatch(addTop250Movies(result));
 
-      console.log("top250-movies");
-      console.log(result);
+      // console.log("top250-movies");
+      // console.log(result);
     } catch (error) {
       console.error(error);
     }

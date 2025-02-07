@@ -25,3 +25,11 @@ export const BOXOFFICEUS_URL =
 
 export const MOSTPOPULARMOVIE_URL =
   "https://imdb236.p.rapidapi.com/imdb/most-popular-movies";
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "german", name: "German" },
+  { identifier: "french", name: "French" },
+  { identifier: "spanish", name: "Spanish" },
+];

@@ -2,8 +2,8 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
-  console.log("from secCon");
-  console.log(movies);
+  // console.log("from secCon");
+  // console.log(movies);
   if (movies == null) return null;
 
   return (
