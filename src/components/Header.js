@@ -5,11 +5,13 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/UserSlice";
 import { NETFLIX_LOGO, USER_LOGO } from "../utils/Constants";
+import { addGPTSuggestionToggle } from "../utils/GPTSuggestionSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -41,6 +43,12 @@ const Header = () => {
         // An error happened.
       });
   };
+
+  const handleGPTSuggestion = () => {
+    //Toggle GPT suggestion
+    dispatch(addGPTSuggestionToggle());
+  };
+
   return (
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <div>
@@ -51,14 +59,22 @@ const Header = () => {
         ></img>
       </div>
       {user && (
-        <div className="flex flex-col justify-center">
-          <img className="w-12 h-12" src={USER_LOGO} alt="userON"></img>
-          <p
-            onClick={handleSignOut}
-            className="mr-2 font-medium text-white hover:underline hover:cursor-pointer"
+        <div className=" flex justify-center">
+          <button
+            onClick={handleGPTSuggestion}
+            className="bg-red-600 text-white rounded-md mr-4 m-2 p-2 h-[45px]"
           >
-            Sign Out
-          </p>
+            GPT Suggestion
+          </button>
+          <div className="flex flex-col">
+            <img className="w-12 h-12" src={USER_LOGO} alt="userON"></img>
+            <p
+              onClick={handleSignOut}
+              className="mr-2 font-medium text-white hover:underline hover:cursor-pointer"
+            >
+              Sign Out
+            </p>
+          </div>
         </div>
       )}
     </div>
