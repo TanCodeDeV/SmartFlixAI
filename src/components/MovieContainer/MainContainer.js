@@ -6,16 +6,17 @@ import VideoTitle from "./VideoTitle";
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.top250Movies);
 
-  if (movies == null) return; //early return ki.e is movie exist then only go ahead
+  if (!movies || movies.length === 0) return null; // Ensure movies exist and are not empty
   const mainMovie = movies[0];
-  // console.log("Main Movie");
-  // console.log(mainMovie);
 
-  const { originalTitle, description } = mainMovie;
+  if (!mainMovie) return null; // Additional safety check
 
   return (
     <div>
-      <VideoTitle title={originalTitle} description={description} />
+      <VideoTitle
+        title={mainMovie.originalTitle}
+        description={mainMovie.description}
+      />
       <VideoBackground />
     </div>
   );

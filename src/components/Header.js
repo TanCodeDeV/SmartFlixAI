@@ -13,6 +13,9 @@ const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const showGPTSearch = useSelector(
+    (store) => store.GPTSuggestion.ShowGPTSuggestion
+  );
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -66,21 +69,23 @@ const Header = () => {
       </div>
       {user && (
         <div className=" flex justify-center">
-          <select
-            className="bg-black text-white m-2 p-2 rounded-md"
-            onChange={handleLanguageChange}
-          >
-            {SUPPORTED_LANGUAGES.map((language) => (
-              <option key={language.identifier} value={language.identifier}>
-                {language.name}
-              </option>
-            ))}
-          </select>
+          {showGPTSearch && (
+            <select
+              className="bg-black text-white mt-2 m-1 p-2 h-[50px] rounded-md"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((language) => (
+                <option key={language.identifier} value={language.identifier}>
+                  {language.name}
+                </option>
+              ))}
+            </select>
+          )}
           <button
             onClick={handleGPTSuggestion}
             className="bg-red-600 text-white rounded-md mr-4 m-2 p-2 h-[45px]"
           >
-            GPT Suggestion
+            {showGPTSearch ? "Home Page" : "GPT Suggestion"}
           </button>
           <div className="flex flex-col">
             <img className="w-12 h-12" src={USER_LOGO} alt="userON"></img>

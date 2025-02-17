@@ -8,12 +8,20 @@ export const LOGIN_BSCKGROUND_IMG =
   "https://assets.nflxext.com/ffe/siteui/vlv3/fb5cb900-0cb6-4728-beb5-579b9af98fdd/web/IN-en-20250127-TRIFECTA-perspective_cf66f5a3-d894-4185-9106-5f45502fc387_large.jpg";
 
 export const VIDEO_URL =
-  "https://imdb-video.media-imdb.com/vi3877612057/1434659607842-pgv4ql-1616202333253.mp4?Expires=1738838055&Signature=HhEyrJEOevmm5i1iUz1wWwO8sgiwztLgKqrL9AzubzDvj4weCRQ3gf5mDA9uI54JnJmxtr6eCq7J-D9mLBiI6TsfAQp3WHkLsUeCwIpYR7EuLhUgGPQrEf3fhVa6R-8wznNj~M1VutcHOYan8wnI4JGkdHG0-A9ILTcDJOvaDfNdKRuu8NVvnRfZPb2vu9s5aISV1hS0ovhyP0aE5DfG5Cqkm80OJhBySLky5ATgd5OlMhq992qnU3eX8BHqbCCUjrIt-1KAYC3HlewbF9pzk99~lo~vnalViB~hopQNA2sjGBSxFkY01U7ypYW0TobqK35czapMJSLUW~YD40um0A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA";
+  "https://imdb-video.media-imdb.com/vi3877612057/1434659607842-pgv4ql-1616202333253.mp4?Expires=1739863643&Signature=FyhiuuCoOjH0jHDxw9hxkklmO9Ug~shJebqPSzGqO-Z4Ptd3ETdDX5MrQ7wR8tqWRniJMsW4UkZytnngDuhDLMJ7-hgFpD9VYW8FqxObBb1ihDIstNm-LKAAdVOl1L4ZUlC92XNFbeVzkRMwNXPju2qaOft7ONmA1d7A4XqQ8PwLKWlU3ozICMxbUe2XoGGyQXdnrpvAzjagzN-fjI24Ph08jEaJkk4AN0l1cQ3qHRo0DtaIn7NbvlUh8j0b2vjbcDPPFwxljeW-Vkpc2ww2PWuc3hbkcNFlWHWigL8VOWDmUNrxbHKJOdjIU7cxGKs8Xo2ZG~8YE6u3KC-ysoglyw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA";
+
+// export const OPTIONS = {
+//   method: "GET",
+//   headers: {
+//     "x-rapidapi-key": "543dc52bc4msh59a4963aae7d5f7p1a9109jsnc72ae1cef38a",
+//     "x-rapidapi-host": "imdb236.p.rapidapi.com",
+//   },
+// };
 
 export const OPTIONS = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "543dc52bc4msh59a4963aae7d5f7p1a9109jsnc72ae1cef38a",
+    "x-rapidapi-key": "09d9bcf793mshfd078f7720b2f83p1d4ba5jsnb8674988f9bb",
     "x-rapidapi-host": "imdb236.p.rapidapi.com",
   },
 };
@@ -25,6 +33,9 @@ export const BOXOFFICEUS_URL =
 
 export const MOSTPOPULARMOVIE_URL =
   "https://imdb236.p.rapidapi.com/imdb/most-popular-movies";
+
+export const OPENAI_SECRET_KEY =
+  "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";
 
 export const SUPPORTED_LANGUAGES = [
   { identifier: "en", name: "English" },
